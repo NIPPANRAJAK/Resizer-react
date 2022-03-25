@@ -1,42 +1,57 @@
-.item {
+.main{
+  height: 650px;
+  width: 500px;
+  background-color: rgb(214, 214, 214);
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-left: 30%;
+  margin-top: 2%;
+}
+
+.item{
   height: 50px;
   width: 50px;
   position: absolute;
+  /* top: 40%; */
+  left: 45%;
   background: yellow;
-  margin: 5px;
- top: 50%;
- left: 50%;
-}
-
-.resizer {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-  background-color: black;
-  z-index: 2;
-}
-
-.nw {
-  top: -1px;
-  left: -1px;
-  cursor: nw-resize;
-}
-
-.ne {
-  top: -1px;
-  right: -1px;
-  cursor: ne-resize;
-}
-
-.sw {
-  bottom: -1px;
-  left: -1px;
-  cursor: sw-resize;
-}
-
-.se {
-  bottom: -1px;
-  right: -1px;
-  cursor: se-resize;
-}
+  }
+  
+  .resizer{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: black;
+    z-index: 2;
+  }
+  
+  .resizer.nw{
+      top: -1px;
+      left: -1px;
+      cursor: nw-resize;
+    }
+    
+     .resizer.ne{
+      top: -1px;
+      right: -1px;
+      cursor: ne-resize;
+    }
+    
+     .resizer.sw{
+      bottom: -1px;
+      left: -1px;
+      cursor: sw-resize;
+    }
+    
+     .resizer.se{
+      bottom: -1px;
+      right: -1px;
+      cursor: se-resize;
+    }
+    .Image{
+      z-index: 3;
+    height: 200px;
+    width: 200px;
+    }
