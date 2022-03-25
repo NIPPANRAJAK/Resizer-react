@@ -1,21 +1,19 @@
 import React, { useRef } from "react";
 import "./App.css";
 import image from "./image.jpg";
- const App = (e) => {
-  // const [isResizing, setIsResizing] = useState(false);
-  // const resizerRef = useRef(null);
-  const boxRef = useRef(null);// access node  for resizing dimensions
+const App = (e) => {
+  const boxRef = useRef(null);
   let currentResizer;
   const sizing = (e) => {
-    currentResizer = e.target; //to target the perticuler div
-    let prevX = e.clientX; // set current dimension
+    currentResizer = e.target;
+    let prevX = e.clientX;
     let prevY = e.clientY;
-    window.addEventListener("mousemove", mousemove);//move mouse 
-    window.addEventListener("mouseup", mouseup);//release mouse
+    window.addEventListener("mousemove", mousemove); 
+    window.addEventListener("mouseup", mouseup);
     function mousemove(e) {
-      const rect = boxRef.current.getBoundingClientRect();// set whole dimenssion of full div
+      const rect = boxRef.current.getBoundingClientRect();
 
-      if (currentResizer.classList.contains("se")) { //.classList for access all the class  name and .contains to specify the perti cular calssname
+      if (currentResizer.classList.contains("se")) { 
         boxRef.current.style.width = rect.width - (prevX - e.clientX) + "px";
         boxRef.current.style.height = rect.height - (prevY - e.clientY) + "px";
       } else if (currentResizer.classList.contains("sw")) {
@@ -34,19 +32,19 @@ import image from "./image.jpg";
         boxRef.current.style.left = rect.left - (prevX - e.clientX) + "px";
       }
 
-      prevX = e.clientX;// again set the current s axis
+      prevX = e.clientX; 
       prevY = e.clientY;
     }
     function mouseup() {
-      window.removeEventListener("mousemove", mousemove);// for unstick the mouse move
-      window.removeEventListener("mouseup", mouseup);// for unstick the mouseup
+      window.removeEventListener("mousemove", mousemove);
+      window.removeEventListener("mouseup", mouseup);
     }
   };
 
   return (
     <div className="main">
       <div ref={boxRef} className="item">
-      <img className="Image" style={{ width: "100%" , height: "100%"}} src={image} />
+        <img className="Image" style={{ width: "100%", height: "100%" }} src={image} />
         <div className="resizer ne" onMouseDown={(e) => sizing(e)}></div>
         <div className="resizer nw" onMouseDown={(e) => sizing(e)}></div>
         <div className="resizer sw" onMouseDown={(e) => sizing(e)}></div>

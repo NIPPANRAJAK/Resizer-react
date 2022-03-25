@@ -3,7 +3,6 @@
   width: 500px;
   background-color: rgb(214, 214, 214);
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   margin-left: 30%;
   margin-top: 2%;
@@ -13,9 +12,7 @@
   height: 100px;
   width: 100px;
   position: absolute;
-  /* top: 40%; */
   left: 45%;
-  /* background: yellow; */
   }
   
   .resizer{
