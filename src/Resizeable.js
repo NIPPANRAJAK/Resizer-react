@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import "./App.css";
+import image from "./image.jpg";
 export const Resizeable = (e) => {
   // const [isResizing, setIsResizing] = useState(false);
   // const resizerRef = useRef(null);
@@ -45,6 +46,7 @@ export const Resizeable = (e) => {
   return (
     <div className="main">
       <div ref={boxRef} className="item">
+      <img className="Image" style={{ width: "100%" , height: "100%"}} src={image} />
         <div className="resizer ne" onMouseDown={(e) => sizing(e)}></div>
         <div className="resizer nw" onMouseDown={(e) => sizing(e)}></div>
         <div className="resizer sw" onMouseDown={(e) => sizing(e)}></div>
@@ -53,4 +55,3 @@ export const Resizeable = (e) => {
     </div>
   );
 };
-// export default Resizeable;

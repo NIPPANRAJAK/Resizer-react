@@ -15,7 +15,7 @@
   position: absolute;
   /* top: 40%; */
   left: 45%;
-  background: yellow;
+  /* background: yellow; */
   }
   
   .resizer{
@@ -52,6 +52,8 @@
     }
     .Image{
       z-index: 3;
-    height: 200px;
-    width: 200px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
