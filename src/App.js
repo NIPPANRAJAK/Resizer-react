@@ -3,25 +3,22 @@ import "./App.css";
 import image from "./image.jpg";
 const App = (e) => {
   const boxRef = useRef(null);
-  let currentResizer;
-  const sizing = (e) => {
-    currentResizer = e.target;
+  const sizing = (e, current) => {
     let prevX = e.clientX;
     let prevY = e.clientY;
-    window.addEventListener("mousemove", mousemove); 
+    window.addEventListener("mousemove", mousemove);
     window.addEventListener("mouseup", mouseup);
     function mousemove(e) {
       const rect = boxRef.current.getBoundingClientRect();
 
-      if (currentResizer.classList.contains("se")) { 
+      if (current === 'se') {
         boxRef.current.style.width = rect.width - (prevX - e.clientX) + "px";
         boxRef.current.style.height = rect.height - (prevY - e.clientY) + "px";
-      } else if (currentResizer.classList.contains("sw")) {
+      } else if (current === 'sw') {
         boxRef.current.style.width = rect.width + (prevX - e.clientX) + "px";
         boxRef.current.style.height = rect.height - (prevY - e.clientY) + "px";
         boxRef.current.style.left = rect.left - (prevX - e.clientX) + "px";
-        console.log(rect.left, prevX, e.clientX)
-      } else if (currentResizer.classList.contains("ne")) {
+      } else if (current === "ne") {
         boxRef.current.style.width = rect.width - (prevX - e.clientX) + "px";
         boxRef.current.style.height = rect.height + (prevY - e.clientY) + "px";
         boxRef.current.style.top = rect.top - (prevY - e.clientY) + "px";
@@ -32,7 +29,7 @@ const App = (e) => {
         boxRef.current.style.left = rect.left - (prevX - e.clientX) + "px";
       }
 
-      prevX = e.clientX; 
+      prevX = e.clientX;
       prevY = e.clientY;
     }
     function mouseup() {
@@ -44,11 +41,16 @@ const App = (e) => {
   return (
     <div className="main">
       <div ref={boxRef} className="item">
-        <img className="Image" style={{ width: "100%", height: "100%" }} src={image} />
-        <div className="resizer ne" onMouseDown={(e) => sizing(e)}></div>
-        <div className="resizer nw" onMouseDown={(e) => sizing(e)}></div>
-        <div className="resizer sw" onMouseDown={(e) => sizing(e)}></div>
-        <div className="resizer se" onMouseDown={(e) => sizing(e)}></div>
+        <img
+          className="Image"
+          style={{ width: "100%", height: "100%" }}
+          src={image}
+          alt="nothig"
+        />
+        <div className="resizer ne" onMouseDown={(e) => sizing(e, 'ne')}></div>
+        <div className="resizer nw" onMouseDown={(e) => sizing(e, 'nw')}></div>
+        <div className="resizer sw" onMouseDown={(e) => sizing(e, 'sw')}></div>
+        <div className="resizer se" onMouseDown={(e) => sizing(e, 'se')}></div>
       </div>
     </div>
   );
